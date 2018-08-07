@@ -3,7 +3,7 @@ FROM debian
 ENV PATH=$PATH:/opt/Nim/bin:/root/.nimble/bin
 
 RUN apt update && \
-      apt -y install libc-dev gcc curl git perl mingw-w64 \
+      apt -y install libc-dev gcc curl git perl mingw-w64 libzip-dev \
       && \
       rm -rf /var/cache/apt/;
 
