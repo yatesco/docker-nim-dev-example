@@ -7,11 +7,8 @@ cp -Rp * /workdir/linux/
 rm -rf /workdir/linux/src/nimcache
 cd /workdir/linux 
 
-nimble c --cpu:amd64 --os:linux --opt:speed --embedsrc --threads:on --checks:on -c -d:release src/*.nim
-cd src
-cp /opt/Nim/lib/nimbase.h nimcache
-gcc -o linux.exe nimcache/*.c
-cp linux.exe $my_pwd/dist/
+nim c --cpu:amd64 --os:linux --opt:speed --embedsrc --threads:on --checks:on -d:release src/*.nim
+cp src/docker_nim_dev_example $my_pwd/dist/linux.exe
 echo "Copied linux.exe to $my_pwd/dist"
 
 cd $my_pwd
